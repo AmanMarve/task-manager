@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const style = {
@@ -14,22 +14,29 @@ const Sidebar = () => {
       margin: "0 0 20px 0",
       padding: "10px",
     },
+    link: {
+      display: "block",
+      marginBottom: "10px",
+      borderBottom: "#2121215d solid 1px",
+      padding: "10px",
+      borderRadius: "5px",
+      textDecoration: "none",
+      color: "#000",
+    },
+    activeLink: {
+      backgroundColor: "#212121",
+      color: "#fff",
+    },
     ul: {
       padding: "10px 0 0 0px",
       listStyleType: "none",
       alignItems: "flex-start",
       justifyContent: "flex-start",
     },
-    li: {
-      marginBottom: "10px",
-      backgroundColor: "#e0e0e0",
-      padding: "10px",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
     logout: {
       marginTop: "auto",
-      backgroundColor: "#e0e0e0",
+      backgroundColor: "#b40000",
+      color: "white",
       padding: "10px",
       borderRadius: "5px",
       cursor: "pointer",
@@ -45,17 +52,29 @@ const Sidebar = () => {
       <div>
         <h2 style={style.h1}>Task-Manager</h2>
         <ul style={style.ul}>
-          <Link style={style.Link} to="/">
-            {" "}
-            <li style={style.li}>Home</li>
-          </Link>
-          <Link style={style.Link} to="/tasks">
-            <li style={style.li}>Tasks</li>
-          </Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              ...style.link,
+              ...(isActive ? style.activeLink : {}),
+            })}
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/task"
+            style={({ isActive }) => ({
+              ...style.link,
+              ...(isActive ? style.activeLink : {}),
+            })}
+          >
+            Add Task
+          </NavLink>
         </ul>
       </div>
       <h3 style={style.logout}>
-        <Link style={style.Link} to="/logout">
+        <Link style={{textDecoration: "none", color: "white"}}>
           Logout
         </Link>
       </h3>
