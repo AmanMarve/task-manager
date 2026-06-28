@@ -11,3 +11,13 @@ export const getTasks = async () => {
         throw error;
     }
 };
+
+export const createTask = async(taskData)=>{
+    try {
+        const response=await axios.post(API_URL, taskData);
+        return response.data;
+    }catch (error){
+        console.error('Error creating task:', error);
+        throw error;
+    }
+}

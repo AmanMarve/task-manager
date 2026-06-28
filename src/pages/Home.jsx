@@ -52,7 +52,7 @@ const Home = () => {
       <hr style={style.hr} />
       <div>
         {tasks.map((task) => (
-          <TaskRow key={task.id} task={task} />
+          <TaskRow key={task._id} task={task} />
         ))}
       </div>
     </div>

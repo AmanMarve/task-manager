@@ -45,15 +45,15 @@ const TaskRow = ({ task }) => {
   };
 
   const statusConfig = {
-    pending: {
-      label: "Pending",
+    "backlog": {
+      label: "Backlog",
       color: "#c58f22",
     },
     "in-progress": {
       label: "In Progress",
       color: "#f59e0b",
     },
-    completed: {
+    "completed": {
       label: "Completed",
       color: "#6366f1",
     },
